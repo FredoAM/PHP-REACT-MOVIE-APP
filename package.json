@@ -8,7 +8,7 @@
     "build": "npm install && vite build",
     "lint": "eslint src --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
-    "start":"serve dist -s -n -L -p $PORT"
+    "start": "npx http-server dist"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.4.0",
@@ -16,6 +16,7 @@
     "@fortawesome/free-solid-svg-icons": "^6.4.0",
     "@fortawesome/react-fontawesome": "^0.2.0",
     "babel-plugin-macros": "^3.1.0",
+    "http-server": "^14.1.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-helmet": "^6.1.0",
