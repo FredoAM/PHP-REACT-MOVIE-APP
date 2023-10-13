@@ -3,6 +3,7 @@
 include("db.php");
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
+header("Access-Control-Allow-Origin: https://php-react-movie-app-production.up.railway.app/");
 header("Access-Control-Allow-Methods: POST");
 header("Access-Control-Allow-Headers: Content-Type");
 header('Access-Control-Allow-Origin: *');
@@ -11,7 +12,7 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
   }
 
-if (isset($_POST["usuario"])) {
+  if (isset($_POST["usuario"])) {
     $usuario = $_POST["usuario"];
     $correo = $_POST["correo"];
     $password = $_POST["password"];
@@ -26,8 +27,7 @@ if (isset($_POST["usuario"])) {
         mysqli_stmt_store_result($stmt);
         $rowCount = mysqli_stmt_num_rows($stmt);
         if ($rowCount > 0) {
-            header('Content-Type: application/json');
-            echo json_encode(["message" => "Username or email already registered"]);
+            echo "Username or email already registered";
             return;
         } else {
             // Insert the new user into the database
@@ -37,8 +37,7 @@ if (isset($_POST["usuario"])) {
             if ($prepareStmt) {
                 mysqli_stmt_bind_param($stmt, "sss", $usuario, $correo, $passwordHash);
                 mysqli_stmt_execute($stmt);
-                header('Content-Type: application/json');
-                echo json_encode(["message" => "You are registered successfully"]);
+                echo "You are registered successfully";
             } else {
                 echo mysqli_error($conn);
             }

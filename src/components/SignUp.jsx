@@ -41,12 +41,12 @@ const SignUp = () => {
             method: 'POST',
             mode: 'cors', // add this line to enable CORS
             headers: {
-              'Content-Type': 'application/x-www-form-urlencoded'
-            },
-            body: `usuario=${usuario}&correo=${correo}&password=${password}`
-          });
-      
-            const data = await response.json();
+                'Content-Type': 'application/x-www-form-urlencoded'
+              },
+              body: `usuario=${usuario}&correo=${correo}&password=${password}`
+            });
+        
+              const data = await response.text();
             console.log(data); // Display the response from the PHP file
             if(data == "Username or email already registered"){
                 cambiarEstadoAlerta(true)
