@@ -4,11 +4,11 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "start":"vite",
     "dev": "vite",
-    "build": "npm install && vite build",
+    "build": "vite build",
     "lint": "eslint src --ext js,jsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "start":"serve dist -s -n -L"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.4.0",
