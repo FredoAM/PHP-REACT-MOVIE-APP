@@ -8,6 +8,8 @@ header("Access-Control-Allow-Methods: POST");
 header("Access-Control-Allow-Headers: Content-Type");
 header('Access-Control-Allow-Origin: *');
 
+
+echo "Desde php registration";
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
   }
