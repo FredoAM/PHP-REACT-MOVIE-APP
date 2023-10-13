@@ -5,6 +5,10 @@ header("Access-Control-Allow-Methods: POST");
 header("Access-Control-Allow-Headers: Content-Type");
 header('Access-Control-Allow-Origin: *');
 
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+  }
+
 if (isset($_POST["usuario"])) {
     $usuario = $_POST["usuario"];
     $correo = $_POST["correo"];
