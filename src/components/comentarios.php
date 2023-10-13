@@ -1,7 +1,10 @@
 <?php
+
+
 // Assuming you have established a database connection
 include("db.php");
-
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
 header("Access-Control-Allow-Methods: GET, POST");
 header("Access-Control-Allow-Headers: Content-Type");
 header('Access-Control-Allow-Origin: *');
@@ -18,7 +21,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $stmt->execute();
 
     // Return a success response
-    header('Content-Type: application/json');
     http_response_code(200);
     echo json_encode(['message' => 'Comment saved successfully']);
     exit;
@@ -39,7 +41,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
     $comments = $result->fetch_all(MYSQLI_ASSOC);
 
     // Return the comments as JSON response
-    header('Content-Type: application/json');
     http_response_code(200);
     echo json_encode(['comments' => $comments]);
     exit;
