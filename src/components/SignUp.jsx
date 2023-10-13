@@ -41,31 +41,38 @@ const SignUp = () => {
             method: 'POST',
             mode: 'cors', // add this line to enable CORS
             headers: {
-              'Content-Type': 'application/x-www-form-urlencoded'
+              'Content-Type': 'application/json'
             },
-            body: `usuario=${usuario}&correo=${correo}&password=${password}`
+            body: JSON.stringify({ usuario, correo, password })
           });
       
-            const data = await response.text();
-            console.log(data); // Display the response from the PHP file
-            if(data == "Username or email already registered"){
-                cambiarEstadoAlerta(true)
-                cambiarAlerta({
-                    tipo:'error',
-                    mensaje:'Username or email already registered'
-                })
-            }else{
-                cambiarEstadoAlerta(true)
-                cambiarAlerta({
-                    tipo:'exito',
-                    mensaje:'The user has been registered successfully'
-                })
-            }
-            
+          const data = await response.json();
+          console.log(data); // Display the response from the PHP file
+      
+          if (data.message === "Username or email already registered") {
+            cambiarEstadoAlerta(true);
+            cambiarAlerta({
+              tipo: 'error',
+              mensaje: 'Username or email already registered'
+            });
+          } else if (data.message === "You are registered successfully") {
+            cambiarEstadoAlerta(true);
+            cambiarAlerta({
+              tipo: 'exito',
+              mensaje: 'The user has been registered successfully'
+            });
+          } else {
+            cambiarEstadoAlerta(true);
+            cambiarAlerta({
+              tipo: 'error',
+              mensaje: 'There was a problem with the sign up'
+            });
+          }
         } catch (error) {
-            console.error(error);
+          console.error(error);
         }
-    }
+      };
+      
 
     
     const handleSubmit= async(e) =>{
