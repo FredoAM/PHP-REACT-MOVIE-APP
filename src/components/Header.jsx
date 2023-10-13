@@ -42,7 +42,7 @@ const Header = () => {
 
     const handleLogout = async () => {
         try {
-          const response = await fetch('http://localhost/logout.php', {
+          const response = await fetch('../database/logout.php', {
             method: 'POST',
             credentials: 'include',
             mode: 'cors',
