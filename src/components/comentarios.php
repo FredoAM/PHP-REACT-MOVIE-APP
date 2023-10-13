@@ -18,6 +18,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $stmt->execute();
 
     // Return a success response
+    header('Content-Type: application/json');
     http_response_code(200);
     echo json_encode(['message' => 'Comment saved successfully']);
     exit;
@@ -38,6 +39,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
     $comments = $result->fetch_all(MYSQLI_ASSOC);
 
     // Return the comments as JSON response
+    header('Content-Type: application/json');
     http_response_code(200);
     echo json_encode(['comments' => $comments]);
     exit;

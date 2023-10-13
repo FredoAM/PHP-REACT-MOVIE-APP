@@ -24,7 +24,8 @@ if (isset($_POST["usuario"])) {
         mysqli_stmt_store_result($stmt);
         $rowCount = mysqli_stmt_num_rows($stmt);
         if ($rowCount > 0) {
-            echo "Username or email already registered";
+            header('Content-Type: application/json');
+            echo json_encode(["message" => "Username or email already registered"]);
             return;
         } else {
             // Insert the new user into the database
@@ -34,7 +35,8 @@ if (isset($_POST["usuario"])) {
             if ($prepareStmt) {
                 mysqli_stmt_bind_param($stmt, "sss", $usuario, $correo, $passwordHash);
                 mysqli_stmt_execute($stmt);
-                echo "You are registered successfully";
+                header('Content-Type: application/json');
+                echo json_encode(["message" => "You are registered successfully"]);
             } else {
                 echo mysqli_error($conn);
             }
