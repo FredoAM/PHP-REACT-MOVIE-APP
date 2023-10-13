@@ -31,7 +31,7 @@ const Login = () => {
 
     const login = async () => {
         try {
-          const response = await fetch('../database/login.php', {
+          const response = await fetch('login.php', {
             method: 'POST',
             mode: 'cors',
             headers: {

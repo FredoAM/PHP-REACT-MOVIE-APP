@@ -37,7 +37,7 @@ const SignUp = () => {
 
     const registration = async () => {
         try {
-          const response = await fetch('../database/registration.php', {
+          const response = await fetch('registration.php', {
             method: 'POST',
             mode: 'cors', // add this line to enable CORS
             headers: {
