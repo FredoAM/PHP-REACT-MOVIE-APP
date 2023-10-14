@@ -31,7 +31,7 @@ const Login = () => {
 
     const login = async () => {
         try {
-          const response = await fetch('login.php', {
+          const response = await fetch('https://ecommerce-fredo-shop-production.up.railway.app/login.php', {
             method: 'POST',
             mode: 'cors',
             headers: {

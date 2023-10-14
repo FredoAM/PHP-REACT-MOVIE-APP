@@ -31,7 +31,7 @@ function Movie() {
   };
 
   try {
-    const response = await fetch('favoritos.php', {
+    const response = await fetch('https://ecommerce-fredo-shop-production.up.railway.app/favoritos.php', {
       method: 'POST',
       mode: 'cors',
       headers: {
@@ -60,7 +60,7 @@ function Movie() {
 const getFavourites = async (userId) => {
         
   try {
-    const response = await fetch(`favoritos.php?userId=${userId}`);
+    const response = await fetch(`https://ecommerce-fredo-shop-production.up.railway.app/favoritos.php?userId=${userId}`);
     if (response.ok) {
       const data = await response.json();
       return data.favorites;
@@ -131,7 +131,7 @@ const getUserData = async () => {
     };
 
     try {
-        const response = await fetch('borrarFavorito.php', {
+        const response = await fetch('https://ecommerce-fredo-shop-production.up.railway.app/borrarFavorito.php', {
         method: 'POST',
         mode: 'cors',
         headers: {
@@ -169,7 +169,7 @@ const getUserData = async () => {
     };
   
     try {
-      const response = await fetch('comentarios.php', {
+      const response = await fetch('https://ecommerce-fredo-shop-production.up.railway.app/comentarios.php', {
         method: 'POST',
         mode: 'cors',
         headers: {
@@ -193,7 +193,7 @@ const getUserData = async () => {
   
   const fetchMovieComments = async (movieId) => {
     try {
-      const response = await fetch(`comentarios.php?movieId=${movieId}`);
+      const response = await fetch(`https://ecommerce-fredo-shop-production.up.railway.app/comentarios.php?movieId=${movieId}`);
       if (response.ok) {
         const data = await response.json();
         return data.comments;
@@ -222,7 +222,7 @@ const getUserData = async () => {
       };
 
       try {
-        const response = await fetch('borrarComentario.php', {
+        const response = await fetch('https://ecommerce-fredo-shop-production.up.railway.app/borrarComentario.php', {
           method: 'POST',
           mode: 'cors',
           headers: {

@@ -42,7 +42,7 @@ const Header = () => {
 
     const handleLogout = async () => {
         try {
-          const response = await fetch('logout.php', {
+          const response = await fetch('https://ecommerce-fredo-shop-production.up.railway.app/logout.php', {
             method: 'POST',
             credentials: 'include',
             mode: 'cors',

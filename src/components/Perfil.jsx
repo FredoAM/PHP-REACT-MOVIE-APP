@@ -22,14 +22,14 @@ const Perfil = () => {
         twitter: '',
         instagram: '',
         facebook: '',
-        image: userPhoto
+        image: userPhoto || ''
       });
       
     
     const getFavourites = async (userId) => {
         
             try {
-              const response = await fetch(`favoritos.php?userId=${userId}`);
+              const response = await fetch(`https://ecommerce-fredo-shop-production.up.railway.app/favoritos.php?userId=${userId}`);
               if (response.ok) {
                 const data = await response.json();
                 return data.favorites;
@@ -47,7 +47,7 @@ const Perfil = () => {
     const getUserInfo = async (userId) => {
         
         try {
-          const response = await fetch(`editUser.php?userId=${userId}`);
+          const response = await fetch(`https://ecommerce-fredo-shop-production.up.railway.app/editUser.php?userId=${userId}`);
           if (response.ok) {
             const data = await response.json();
             return data.userInfo;
@@ -66,7 +66,7 @@ const Perfil = () => {
       const saveImageToDatabase = async (imageData, usuario) => {
         // Make an API call to save the image data to the database
         try {
-          const response = await fetch('database/saveImage.php', {
+          const response = await fetch('https://ecommerce-fredo-shop-production.up.railway.app/saveImage.php', {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
@@ -156,7 +156,7 @@ const Perfil = () => {
         
 
         try {
-            const response = await fetch('editUser.php', {
+            const response = await fetch('https://ecommerce-fredo-shop-production.up.railway.app/editUser.php', {
             method: 'POST',
             mode: 'cors',
             headers: {
@@ -255,7 +255,7 @@ const Perfil = () => {
         };
     
         try {
-            const response = await fetch('../database/borrarFavorito.php', {
+            const response = await fetch('https://ecommerce-fredo-shop-production.up.railway.app/borrarFavorito.php', {
             method: 'POST',
             mode: 'cors',
             headers: {

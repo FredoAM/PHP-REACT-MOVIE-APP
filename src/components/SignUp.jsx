@@ -37,7 +37,7 @@ const SignUp = () => {
 
     const registration = async () => {
         try {
-          const response = await fetch('https://php-react-movie-app-production.up.railway.app/registration.php', {
+          const response = await fetch('https://ecommerce-fredo-shop-production.up.railway.app/registration.php', {
             method: 'POST',
             mode: 'cors', // add this line to enable CORS
             headers: {

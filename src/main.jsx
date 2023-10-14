@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client'
 import App from './App.jsx'
 import './index.css'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
-import {Movie, Header, Search, Login, SignUp, PrivateRoute, RutaPrivada, Perfil, StyledComponent} from './components'
+import {Movie, Header, Search, Login, SignUp, PrivateRoute, RutaPrivada, Perfil} from './components'
 import {MoviesProvider} from './Contexts/MoviesContext.jsx';
 import { AuthProvider } from './Contexts/LoginAuth.jsx';
 
@@ -15,7 +15,6 @@ ReactDOM.createRoot(document.getElementById('root')).render(
           <Header/>
           <Routes>
             <Route exact path="/" Component={App}> </Route>
-            <Route exact path="/try" Component={StyledComponent}> </Route>
             <Route path="/:mediaType/:id" Component={Movie}> </Route>
             <Route
                 path="/Perfil"
