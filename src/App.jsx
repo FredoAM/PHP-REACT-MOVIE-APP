@@ -10,7 +10,7 @@ function App() {
   
 
   
-  ///discover/movie?sort_by=popularity.desc
+  ///discover/movie?sort_by=popularity.desc --
 
 
 
